@@ -1,8 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-a {
-	font-family: 'filson-soft', sans-serif;
-	font-weight: 500;
-	font-style: normal;
+
+body {
+	background-color: rgba(66, 62, 60, 1);
 }
