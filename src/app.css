@@ -5,3 +5,7 @@
 body {
 	background-color: rgba(66, 62, 60, 1);
 }
+#page-container {
+	grid-template-columns: auto 1fr;
+	grid-template-rows: auto 1fr auto;
+}
