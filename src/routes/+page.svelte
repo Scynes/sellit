@@ -9,7 +9,7 @@
 <div>
 	<div>
 		<nav
-			class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center"
+			class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center "
 		>
 			<div class="flex items-center justify-between">
 				<a
@@ -20,6 +20,7 @@
 				<!-- Mobile menu button -->
 				<div
 					on:click={toggleNavbar}
+					on:keypress={toggleNavbar}
 					class="flex md:hidden"
 				>
 					<button
