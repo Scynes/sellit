@@ -4,20 +4,20 @@
   import Nav from "../lib/Nav.svelte";
   import Content from "../lib/Content.svelte";
   import { onMount } from "svelte";
-  import supabase from "../utils/supabase";
+  import { supabaseClient } from '../utils/supabase.js'
+  import { invalidate } from '$app/navigation'
 
-  onMount(async () => {
-    const { user, error } = await supabase.auth.signUp({
-      email: "user@example.com",
-      password: "password",
-    });
+  onMount(() => {
+    const {
+      data: { subscription },
+    } = supabaseClient.auth.onAuthStateChange(() => {
+		invalidateAll()
+    })
 
-    if (error) {
-      console.error(error);
-    } else {
-      console.log(user);
+    return () => {
+      subscription.unsubscribe()
     }
-  });
+  })
 </script>
 
 <div id="page-container" class="grid h-full">
