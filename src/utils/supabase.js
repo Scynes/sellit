@@ -30,6 +30,3 @@ export const getSupabaseConnection = () => {
 
     return CONNECTION;
 }
-
-
-
