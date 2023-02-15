@@ -3,9 +3,13 @@
 	import Sidebar from '../lib/Sidebar.svelte';
 	import Nav from '../lib/Nav.svelte';
 	import Content from '../lib/Content.svelte';
+	import 'iconify-icon';
 </script>
 
-<div id="page-container" class="grid h-full">
+<div
+	id="page-container"
+	class="grid h-full"
+>
 	<Nav />
 	<Sidebar />
 	<Content>
