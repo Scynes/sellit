@@ -3,7 +3,7 @@
     import TrendingCommunities from "../../lib/components/widget/TrendingCommunities.svelte";
 </script>
 
-<div id="communities-container">
+<div id="communities-container" class="grid gap-4">
     <div>
         <CommunitySearch />
     </div>
