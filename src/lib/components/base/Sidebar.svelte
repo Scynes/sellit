@@ -1,6 +1,7 @@
 <script>
-	import '../app.css';
+	import '../../../app.css';
 	import {
+		Sidebar,
 		SidebarGroup,
 		SidebarItem,
 		SidebarWrapper,
