@@ -14,7 +14,7 @@
 </script>
 
 <Sidebar>
-	<SidebarWrapper class="h-screen fixed left-0">
+	<SidebarWrapper class="h-screen fixed left-0 rounded-none">
 		<SidebarGroup>
 			<SidebarItem label="Home">
 				<svelte:fragment slot="icon">

@@ -39,9 +39,7 @@
 			href="/"
 			active={true}>Home</NavLi
 		>
+		<NavLi href="/communities">Communities</NavLi>
 		<NavLi href="/about">About</NavLi>
-		<NavLi href="/services">Services</NavLi>
-		<NavLi href="/pricing">Pricing</NavLi>
-		<NavLi href="/contact">Contact</NavLi>
 	</NavUl>
 </Navbar>
