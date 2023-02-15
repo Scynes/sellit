@@ -2,7 +2,7 @@
     import { Card, Checkbox, Button, Label, Input, Modal, ButtonGroup, InputAddon, ToolbarButton } from 'flowbite-svelte';
     let show = false;
     let formModal = false;
-  </script>
+</script>
 
 
 <main>
