@@ -24,6 +24,7 @@
 	"dependencies": {
 		"@supabase/supabase-js": "^2.7.1",
 		"dotenv": "^16.0.3",
-		"iconify-icon": "^1.0.5"
+		"iconify-icon": "^1.0.5",
+		"svelte-preprocess": "^5.0.1"
 	}
 }
