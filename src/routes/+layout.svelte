@@ -1,8 +1,8 @@
 <script>
   import "../app.css";
-  import Sidebar from "../lib/Sidebar.svelte";
-  import Nav from "../lib/Nav.svelte";
-  import Content from "../lib/Content.svelte";
+  import Sidebar from "$lib/components/base/Sidebar.svelte";
+  import Nav from "$lib/components/base/Nav.svelte";
+  import Content from "$lib/components/base/Content.svelte";
   import { onMount } from "svelte";
   import supabase from "../utils/supabase";
 
