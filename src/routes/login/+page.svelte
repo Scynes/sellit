@@ -1,14 +1,15 @@
 <script>
-    import { Card, Checkbox, Button, Label, Input, ButtonGroup, InputAddon, ToolbarButton } from 'flowbite-svelte';
+    import { Card, Checkbox, Button, Label, Input, Modal, ButtonGroup, InputAddon, ToolbarButton } from 'flowbite-svelte';
     let show = false;
-    let show1 = false;
+    let formModal = false;
   </script>
 
 
 <main>
-    <Card>
+      <Button on:click={() => formModal = true}>Sign in</Button>
+      <Modal bind:open={formModal} size="xs" autoclose={false} class="w-full">
         <h3 class="text-xl font-medium text-gray-900 dark:text-white p-0">Sign in</h3>
-        <form action="?/login" method="POST" class="auth-form">
+        <form action="?/login" method="POST" class="auth-form flex flex-col space-y-6">
             <Label class="space-y-2">
                 <Input type="email" placeholder="name@flowbite.com" size="md">
                 <svg slot="right" aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
@@ -35,5 +36,5 @@
                 Not registered? <a href="/signup" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
             </div>
         </form>
-    </Card>
+      </Modal>
 </main>
