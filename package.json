@@ -1,28 +1,31 @@
 {
-	"name": "sellit",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview"
-	},
-	"devDependencies": {
-		"@popperjs/core": "^2.11.6",
-		"@sveltejs/adapter-auto": "^2.0.0",
-		"@sveltejs/kit": "^1.5.0",
-		"autoprefixer": "^10.4.13",
-		"classnames": "^2.3.2",
-		"flowbite": "^1.6.3",
-		"flowbite-svelte": "^0.29.13",
-		"postcss": "^8.4.21",
-		"svelte": "^3.54.0",
-		"tailwindcss": "^3.2.6",
-		"vite": "^4.0.0"
-	},
-	"type": "module",
-	"dependencies": {
-		"@supabase/supabase-js": "^2.7.1",
-		"dotenv": "^16.0.3"
-	}
+  "name": "sellit",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@popperjs/core": "^2.11.6",
+    "@sveltejs/adapter-auto": "^2.0.0",
+    "@sveltejs/kit": "^1.5.0",
+    "autoprefixer": "^10.4.7",
+    "classnames": "^2.3.2",
+    "flowbite": "^1.6.3",
+    "flowbite-svelte": "^0.29.13",
+    "postcss": "^8.4.14",
+    "postcss-load-config": "^4.0.1",
+    "svelte": "^3.54.0",
+    "svelte-preprocess": "^4.10.7",
+    "tailwindcss": "^3.2.6",
+    "vite": "^4.0.0"
+  },
+  "type": "module",
+  "dependencies": {
+    "@supabase/auth-helpers-sveltekit": "^0.8.7",
+    "@supabase/supabase-js": "^2.8.0",
+    "dotenv": "^16.0.3"
+  }
 }
