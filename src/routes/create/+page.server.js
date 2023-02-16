@@ -1,4 +1,5 @@
 import JOI from 'joi';
+import { TABLE } from '$lib/utils/supabase.js'
 
 const ADD_ITEM_SCHEMA = JOI.object({
     title: JOI.string().required(),
@@ -12,12 +13,13 @@ export const actions = {
 
     add: async ({request}) => {
 
-        const data = await request.formData();
+        const DATA = await request.formData();
 
-        const { error, result } = ADD_ITEM_SCHEMA.validate(data);
+        const { title, brand, description, asking_price } = Object.fromEntries(DATA);
 
-        if (error) console.log(error)
+        const result = await ADD_ITEM_SCHEMA.validateAsync({title, brand, description, asking_price});
 
-        console.log(result)
+        const post = await TABLE.items.insert(result)
+        console.log(post);
     }
 }
