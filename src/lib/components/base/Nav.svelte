@@ -28,7 +28,7 @@
 		</span>
 	</NavBrand>
 	<div class="flex md:order-2">
-		<Button size="sm">Get started</Button>
+		<Button size="sm">Sign Up</Button>
 		<NavHamburger on:click={toggle} />
 	</div>
 	<NavUl
@@ -39,7 +39,7 @@
 			href="/"
 			active={true}>Home</NavLi
 		>
-		<NavLi href="/communities">Communities</NavLi>
+		<NavLi href="/communities">SubSellits</NavLi>
 		<NavLi href="/about">About</NavLi>
 	</NavUl>
 </Navbar>

@@ -1,4 +1,5 @@
+<script>
+	import { Heading, Secondary, P, Mark } from 'flowbite-svelte';
+</script>
 
-<div>
-    <h1>Home Container</h1>
-</div>
+<Heading class="text-white"><Mark>Index</Mark> of items</Heading>
