@@ -8,12 +8,29 @@
 		Button,
 		Input,
 	} from 'flowbite-svelte';
+	import Auth from '../Auth.svelte';
+	import Login from '../base/Login.svelte';
+	import Signup from '../base/Signup.svelte';
+	import { supabase } from '../../utils/supabase.js';
+	import { user } from '../../../stores/authStore.js';
+
+	console.log(supabase.auth.user);
+	// user.set(supabase.auth.user());
+	supabase.auth.onAuthStateChange((_, session) => {
+		user.set(session?.user);
+		if (session?.user) {
+		}
+	});
+	const logout = () => {
+		console.log('log out');
+		supabase.auth.signOut();
+	};
 </script>
 
 <Navbar
 	let:hidden
 	let:toggle
-	class="col-span-2 bg-dk-green"
+	class="col-span-2 bg-dk-green flex-nowrap"
 >
 	<NavBrand href="/">
 		<img
@@ -38,18 +55,11 @@
 			data-dropdown-toggle="dropdown"
 			class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
 			type="button"
-			>SubSellits<svg
-				aria-hidden="true"
-				class="w-4 h-4 ml-1"
-				fill="currentColor"
-				viewBox="0 0 20 20"
-				xmlns="http://www.w3.org/2000/svg"
-				><path
-					fill-rule="evenodd"
-					d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-					clip-rule="evenodd"
-				/></svg
-			></button
+			>SubSellits
+			<iconify-icon
+				icon="material-symbols:keyboard-arrow-down-rounded"
+				height="22"
+			/></button
 		>
 		<div
 			id="dropdown"
@@ -89,7 +99,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="relative w-full">
+		<div class="relative md:w-80 lg:w-4/6 xl:w-5/6 ">
 			<input
 				type="search"
 				id="search-dropdown"
@@ -101,34 +111,26 @@
 				type="submit"
 				class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
 			>
-				<svg
-					aria-hidden="true"
-					class="w-5 h-5"
-					fill="none"
-					stroke="currentColor"
-					viewBox="0 0 24 24"
-					xmlns="http://www.w3.org/2000/svg"
-					><path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-					/></svg
-				>
+				<iconify-icon icon="majesticons:search-line" />
 				<span class="sr-only">Search</span>
 			</button>
 		</div>
 	</div>
 	<div class="flex md:order-2">
-		<Button
-			class="mx-2 bg-dk-green"
-			size="sm"
-			href="/create">Add Item</Button
-		>
-		<Button
-			class="mx-2"
-			size="sm">Sign Up</Button
-		>
+		{#if user}
+			<Signup />
+			<Login />
+			<Button
+				class="mx-2 bg-dk-green text-white"
+				size="sm"
+				on:click={logout}
+			>
+				Log Out</Button
+			>
+		{:else}
+			<Auth />
+			<Login />
+		{/if}
 	</div>
 </Navbar>
 

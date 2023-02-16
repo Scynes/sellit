@@ -46,25 +46,26 @@
 		bind:open={sizesModal}
 		{size}
 		autoclose
+		class="w-full"
 	>
 		<Label
-			for="name"
-			class="block mb-2">Name</Label
-		>
-		<Input
-			id="default-input"
-			placeholder="Item Name"
-			for="title"
-		/>
-		<Label
 			for="default-input"
-			class="block mb-2">Brand</Label
+			class="block mb-2">What are you selling?</Label
 		>
-		<Input
-			id="default-input"
-			placeholder="..."
-			for="brand"
-		/>
+		<div class=" flex flex-row">
+			<Input
+				id="default-input"
+				placeholder="Item Name"
+				for="title"
+				class="max-w-xs"
+			/>
+			<Input
+				id="default-input"
+				placeholder="Brand"
+				for="brand"
+				class="max-w-xs mx-4"
+			/>
+		</div>
 		<Label
 			for="default-input"
 			class="block mb-2">Asking Price</Label
@@ -73,8 +74,8 @@
 			id="default-input"
 			placeholder="$"
 			for="asking_price"
+			class="-mx-1"
 		/>
-		<Label class="pb-2">Item Description</Label>
 		<Textarea
 			{...textareaprops}
 			for="description"
