@@ -1,7 +1,27 @@
 <script>
+    import { supabase } from '../../utils/supabase'
     import { Card, Checkbox, Button, Label, Input, Modal, ButtonGroup, InputAddon, ToolbarButton } from 'flowbite-svelte';
     let show = false;
     let formModal = false;
+    let loading = false
+    let email = ''
+
+
+    const handleLogin = async () => {
+    try {
+      loading = true
+      const { error } = await supabase.auth.signInWithOtp({ email })
+      if (error) throw error
+      alert('Check your email for login link!')
+    } catch (error) {
+      if (error instanceof Error) {
+        alert(error.message)
+      }
+    } finally {
+      loading = false
+    }
+  }
+
 </script>
 
 
@@ -9,9 +29,9 @@
       <Button on:click={() => formModal = true}>Sign in</Button>
       <Modal bind:open={formModal} size="xs" autoclose={false} class="w-full">
         <h3 class="text-xl font-medium text-gray-900 dark:text-white p-0">Sign in</h3>
-        <form action="?/login" method="POST" class="auth-form flex flex-col space-y-6">
+        <form action="?/login" method="POST" class="auth-form flex flex-col space-y-6" on:submit|preventDefault="{handleLogin}">
             <Label class="space-y-2">
-                <Input type="email" placeholder="name@flowbite.com" size="md">
+                <Input id='email' type="email" placeholder="your email" size="md" bind:value="{email}">
                 <svg slot="right" aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
                 </Input>
             </Label>
