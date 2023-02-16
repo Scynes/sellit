@@ -17,10 +17,7 @@
 //   })
 </script>
 
-<div
-	id="page-container"
-	class="grid h-full"
->
+<div id="page-container" class="grid h-full">
 	<Nav />
 	<Sidebar />
 	<Content>
