@@ -1,24 +1,23 @@
-/** @type {import('./$types').PageServerLoad} */
-let item = [
-    {
-        title: '',
-        brand: '',
-        asking_price: '',
-        listed: '',
-        description: '',
+import JOI from 'joi';
 
-    }
-]
+const ADD_ITEM_SCHEMA = JOI.object({
+    title: JOI.string().required(),
+    brand: JOI.string(),
+    description: JOI.string(),
+    asking_price: JOI.number(),
+})
 
-export async function load() {
-    return {
-        item
-    };
-};
-
+/** @type {import('./$types').Actions} */
 export const actions = {
-    default: async ({request}) => {
-        const formData = await request.formData()
-        console.log(formData);
+
+    add: async ({request}) => {
+
+        const data = await request.formData();
+
+        const { error, result } = ADD_ITEM_SCHEMA.validate(data);
+
+        if (error) console.log(error)
+
+        console.log(result)
     }
 }

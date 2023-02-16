@@ -10,7 +10,7 @@
 	let size;
 	let textareaprops = {
 		id: 'message',
-		name: 'message',
+		name: 'description',
 		label: 'Item Description',
 		rows: 4,
 		placeholder: 'Describe your item ...',
@@ -40,7 +40,7 @@
 		sizesModal = true;
 	}}>Add Item</Button
 >
-<form action="POST">
+<form action="?/add" method="POST">
 	<Modal
 		title="Add Item"
 		bind:open={sizesModal}
@@ -55,6 +55,7 @@
 			id="default-input"
 			placeholder="Item Name"
 			for="title"
+			name="title"
 		/>
 		<Label
 			for="default-input"
@@ -64,6 +65,7 @@
 			id="default-input"
 			placeholder="..."
 			for="brand"
+			name="brand"
 		/>
 		<Label
 			for="default-input"
@@ -73,15 +75,16 @@
 			id="default-input"
 			placeholder="$"
 			for="asking_price"
+			name="asking_price"
+			type="number"
 		/>
 		<Label class="pb-2">Item Description</Label>
 		<Textarea
 			{...textareaprops}
 			for="description"
 		/>
-		<Checkbox checked>List Item</Checkbox>
 		<svelte:fragment slot="footer">
-			<Button>Add Item</Button>
+			<input type="submit" value="Submit">
 			<Button color="alternative">Cancel</Button>
 		</svelte:fragment>
 		<Fileupload {...fileuploadprops} />
