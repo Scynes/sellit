@@ -121,7 +121,7 @@
 	</div>
 	<div class="flex md:order-2">
 		<Button
-			class="mx-2"
+			class="mx-2 bg-dk-green"
 			size="sm"
 			href="/create">Add Item</Button
 		>
