@@ -84,7 +84,6 @@
 			<Button>Add Item</Button>
 			<Button color="alternative">Cancel</Button>
 		</svelte:fragment>
-		<Label class="pb-2">Upload file</Label>
 		<Fileupload {...fileuploadprops} />
 	</Modal>
 </form>

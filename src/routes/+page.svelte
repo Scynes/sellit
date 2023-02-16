@@ -1,21 +1,15 @@
 <script>
-    import { onMount } from "svelte";
+	import { onMount } from 'svelte';
 
+	const getExample = async () => {
+		const response = await fetch('/api/account/register');
 
-    const getExample = async () => {;
+		const result = await response.json();
 
-        const response = await fetch('/api/account/register')
+		console.log(result);
+	};
 
-        const result = await response.json();
-
-        console.log(result);
-    }
-
-    onMount(async () => {
-        getExample();
-    })
+	onMount(async () => {
+		getExample();
+	});
 </script>
-
-<div>
-    <h1>Home Container</h1>
-</div>
