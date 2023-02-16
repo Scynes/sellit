@@ -40,16 +40,20 @@
 		sizesModal = true;
 	}}>Add Item</Button
 >
-<form action="?/add" method="POST">
+<form
+	action="?/add"
+	method="POST"
+>
 	<Modal
 		title="Add Item"
 		bind:open={sizesModal}
 		{size}
 		autoclose
+		class="w-full"
 	>
 		<Label
-			for="name"
-			class="block mb-2">Name</Label
+			for="default-input"
+			class="block mb-2">What are you selling?</Label
 		>
 		<Input
 			id="default-input"
@@ -78,13 +82,15 @@
 			name="asking_price"
 			type="number"
 		/>
-		<Label class="pb-2">Item Description</Label>
 		<Textarea
 			{...textareaprops}
 			for="description"
 		/>
 		<svelte:fragment slot="footer">
-			<input type="submit" value="Submit">
+			<input
+				type="submit"
+				value="Submit"
+			/>
 			<Button color="alternative">Cancel</Button>
 		</svelte:fragment>
 		<Fileupload {...fileuploadprops} />
