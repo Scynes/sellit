@@ -4,6 +4,9 @@
   import Nav from "$lib/components/base/Nav.svelte";
   import Content from "$lib/components/base/Content.svelte";
   import Auth from "../lib/components/Auth.svelte";
+
+
+
 </script>
 
 <div id="page-container" class="grid h-full">
