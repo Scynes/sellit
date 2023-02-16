@@ -13,7 +13,7 @@
 <Navbar
 	let:hidden
 	let:toggle
-	class="col-span-2"
+	class="col-span-2 bg-dk-green"
 >
 	<NavBrand href="/">
 		<img
@@ -27,7 +27,7 @@
 			SELLIT
 		</span>
 	</NavBrand>
-	<div class="flex w-4/6">
+	<div class="flex w-3/5">
 		<label
 			for="search-dropdown"
 			class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -38,7 +38,7 @@
 			data-dropdown-toggle="dropdown"
 			class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
 			type="button"
-			>All categories <svg
+			>SubSellits<svg
 				aria-hidden="true"
 				class="w-4 h-4 ml-1"
 				fill="currentColor"
@@ -120,6 +120,20 @@
 		</div>
 	</div>
 	<div class="flex md:order-2">
-		<Button size="sm">Sign Up</Button>
+		<Button
+			class="mx-2"
+			size="sm"
+			href="/create">Add Item</Button
+		>
+		<Button
+			class="mx-2"
+			size="sm">Sign Up</Button
+		>
 	</div>
 </Navbar>
+
+<style>
+	.bg-dk-green {
+		background-color: #545704;
+	}
+</style>

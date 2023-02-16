@@ -32,7 +32,7 @@
 <div class="text-center">
 	<Button on:click={() => (hidden2 = false)}
 		><iconify-icon
-			icon="material-symbols:arrow-circle-right-rounded"
+			icon="charm:menu-hamburger"
 			height="36"
 		/></Button
 	>
@@ -60,10 +60,32 @@
 			divClass="overflow-y-auto py-4 px-3 rounded dark:bg-gray-800"
 		>
 			<SidebarGroup>
-				<SidebarItem label="Home">
+				<SidebarItem
+					label="Home"
+					href="/"
+				>
 					<svelte:fragment slot="icon">
 						<iconify-icon
 							icon="ic:baseline-cabin"
+							height="24"
+						/>
+					</svelte:fragment>
+				</SidebarItem>
+				<SidebarItem
+					label="Add Item"
+					href="/create"
+				>
+					<svelte:fragment slot="icon">
+						<iconify-icon
+							icon="basil:add-outline"
+							height="24"
+						/>
+					</svelte:fragment>
+				</SidebarItem>
+				<SidebarItem label="Your Items">
+					<svelte:fragment slot="icon">
+						<iconify-icon
+							icon="fluent:stack-32-filled"
 							height="24"
 						/>
 					</svelte:fragment>
@@ -94,14 +116,6 @@
 						>
 					</svelte:fragment>
 				</SidebarItem>
-				<SidebarItem label="Your Items">
-					<svelte:fragment slot="icon">
-						<iconify-icon
-							icon="fluent:stack-32-filled"
-							height="24"
-						/>
-					</svelte:fragment>
-				</SidebarItem>
 				<SidebarDropdownWrapper label="SubSellits">
 					<svelte:fragment slot="icon">
 						<iconify-icon
@@ -109,10 +123,20 @@
 							height="24"
 						/>
 					</svelte:fragment>
-					<SidebarDropdownItem label="PC/Hardware" />
-					<SidebarDropdownItem label="Sneakers" />
-					<SidebarDropdownItem label="Cameras/Gear" />
+					<SidebarDropdownItem
+						label="PC/Hardware"
+						href="/communities"
+					/>
+					<SidebarDropdownItem
+						label="Sneakers"
+						href="/communities"
+					/>
+					<SidebarDropdownItem
+						label="Cameras/Gear"
+						href="/communities"
+					/>
 				</SidebarDropdownWrapper>
+
 				<SidebarItem label="Sign In">
 					<svelte:fragment slot="icon">
 						<svg
@@ -145,6 +169,17 @@
 								d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495"
 							/></svg
 						>
+					</svelte:fragment>
+				</SidebarItem>
+				<SidebarItem
+					label="About"
+					href="/about"
+				>
+					<svelte:fragment slot="icon">
+						<iconify-icon
+							icon="flat-color-icons:about"
+							height="24"
+						/>
 					</svelte:fragment>
 				</SidebarItem>
 			</SidebarGroup>
