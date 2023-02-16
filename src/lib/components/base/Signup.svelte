@@ -15,7 +15,10 @@
 </script>
 
 <main>
-	<Button on:click={() => (formModal = true)}>Sign Up</Button>
+	<Button
+		color="green"
+		on:click={() => (formModal = true)}>Sign Up</Button
+	>
 	<Modal
 		bind:open={formModal}
 		size="xs"

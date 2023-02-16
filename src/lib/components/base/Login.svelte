@@ -15,7 +15,10 @@
 </script>
 
 <main>
-	<Button on:click={() => (formModal = true)}>Log In</Button>
+	<Button
+		color="green"
+		on:click={() => (formModal = true)}>Log In</Button
+	>
 	<Modal
 		bind:open={formModal}
 		size="s"
@@ -112,6 +115,7 @@
 				>
 			</div>
 			<Button
+				color="green"
 				type="submit"
 				class="w-full">Login to your account</Button
 			>

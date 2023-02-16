@@ -34,7 +34,7 @@
 >
 	<NavBrand href="/">
 		<img
-			src="public/img/sellit-logo.png"
+			src="/images/sellit-logo.png"
 			class="mr-3 h-6 sm:h-9"
 			alt="Flowbite Logo"
 		/>
@@ -121,6 +121,7 @@
 			<Signup />
 			<Login />
 			<Button
+				color="green"
 				class="mx-2 bg-dk-green text-white"
 				size="sm"
 				on:click={logout}
@@ -133,9 +134,3 @@
 		{/if}
 	</div>
 </Navbar>
-
-<style>
-	.bg-dk-green {
-		background-color: #545704;
-	}
-</style>

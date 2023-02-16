@@ -10,7 +10,7 @@
 	let size;
 	let textareaprops = {
 		id: 'message',
-		name: 'message',
+		name: 'description',
 		label: 'Item Description',
 		rows: 4,
 		placeholder: 'Describe your item ...',
@@ -40,7 +40,10 @@
 		sizesModal = true;
 	}}>Add Item</Button
 >
-<form action="POST">
+<form
+	action="?/add"
+	method="POST"
+>
 	<Modal
 		title="Add Item"
 		bind:open={sizesModal}
@@ -52,20 +55,22 @@
 			for="default-input"
 			class="block mb-2">What are you selling?</Label
 		>
-		<div class=" flex flex-row">
-			<Input
-				id="default-input"
-				placeholder="Item Name"
-				for="title"
-				class="max-w-xs"
-			/>
-			<Input
-				id="default-input"
-				placeholder="Brand"
-				for="brand"
-				class="max-w-xs mx-4"
-			/>
-		</div>
+		<Input
+			id="default-input"
+			placeholder="Item Name"
+			for="title"
+			name="title"
+		/>
+		<Label
+			for="default-input"
+			class="block mb-2">Brand</Label
+		>
+		<Input
+			id="default-input"
+			placeholder="..."
+			for="brand"
+			name="brand"
+		/>
 		<Label
 			for="default-input"
 			class="block mb-2">Asking Price</Label
@@ -74,15 +79,18 @@
 			id="default-input"
 			placeholder="$"
 			for="asking_price"
-			class="-mx-1"
+			name="asking_price"
+			type="number"
 		/>
 		<Textarea
 			{...textareaprops}
 			for="description"
 		/>
-		<Checkbox checked>List Item</Checkbox>
 		<svelte:fragment slot="footer">
-			<Button>Add Item</Button>
+			<input
+				type="submit"
+				value="Submit"
+			/>
 			<Button color="alternative">Cancel</Button>
 		</svelte:fragment>
 		<Fileupload {...fileuploadprops} />
