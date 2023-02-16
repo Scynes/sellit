@@ -1,1 +1,7 @@
-<h1 class="grid h-screen place-content-center text-8xl">About Sellit</h1>
+<script>
+	import { Heading, Secondary, P, Mark } from 'flowbite-svelte';
+</script>
+
+<Heading class="text-white"
+	>What are we trying to <Mark>accomplish here</Mark> ?</Heading
+>
