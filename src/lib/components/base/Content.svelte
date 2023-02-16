@@ -1,3 +1,8 @@
+<script>
+    import Auth from "../Auth.svelte";
+</script>
+
 <div class="p-4">
-	<slot />
+    <Auth/>
+    <slot/>
 </div>
