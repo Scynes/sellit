@@ -1,11 +1,32 @@
 import { createClient } from '@supabase/supabase-js';
-// import dotenv from "dotenv";
-// dotenv.config();
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+class SupabaseConnection {
 
-// const supabaseUrl = process.env.DATABASE_URL
-// const supabaseAnonKey = process.env.DATABASE_PUBLIC_KEY
+    #SUPABASE_CONNECTION = null;
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+    constructor(url, secretKey) {
+
+        // Create the supabase instance on construction
+        this.#SUPABASE_CONNECTION = createClient(url, secretKey);
+    }
+
+    get = () => {
+        return this.#SUPABASE_CONNECTION;
+    }
+}
+
+let CONNECTION = null;
+
+export const instantiate = (url, secretKey) => {
+    CONNECTION = new SupabaseConnection(url, secretKey);
+}
+
+/**
+ * Getter for the {@SupabaseConnection} instance.
+ *  
+ * @returns @CONNECTION
+ */
+export const getSupabaseConnection = () => {
+
+    return CONNECTION;
+}
