@@ -1,7 +1,7 @@
 import preprocess from "svelte-preprocess";
 import adapter from "@sveltejs/adapter-auto";
 import dotenv from "dotenv";
-import { instantiate, getSupabaseConnection } from "./src/utils/supabase.js";
+import { instantiate, getSupabaseConnection } from "./src/lib/utils/supabase.js";
 
 dotenv.config();
 

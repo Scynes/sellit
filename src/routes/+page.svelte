@@ -1,5 +1,15 @@
 <script>
-	import { Heading, Secondary, P, Mark } from 'flowbite-svelte';
-</script>
+	import { onMount } from 'svelte';
 
-<Heading class="text-white"><Mark>Index</Mark> of items</Heading>
+	const getExample = async () => {
+		const response = await fetch('/api/account/register');
+
+		const result = await response.json();
+
+		console.log(result);
+	};
+
+	onMount(async () => {
+		getExample();
+	});
+</script>
