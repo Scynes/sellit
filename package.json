@@ -10,23 +10,21 @@
 	"devDependencies": {
 		"@popperjs/core": "^2.11.6",
 		"@sveltejs/adapter-auto": "^2.0.0",
-		"@sveltejs/kit": "^1.6.0",
+		"@sveltejs/kit": "^1.5.0",
 		"autoprefixer": "^10.4.13",
 		"classnames": "^2.3.2",
 		"flowbite": "^1.6.3",
 		"flowbite-svelte": "^0.29.13",
 		"postcss": "^8.4.21",
-		"svelte": "^3.55.1",
+		"svelte": "^3.54.0",
 		"tailwindcss": "^3.2.6",
-		"vite": "^4.1.1"
+		"vite": "^4.0.0"
 	},
 	"type": "module",
 	"dependencies": {
-		"@supabase/supabase-js": "^2.8.0",
-		"dec": "^0.0.1",
+		"@supabase/supabase-js": "^2.7.1",
 		"dotenv": "^16.0.3",
 		"iconify-icon": "^1.0.5",
-		"run": "^1.4.0",
 		"svelte-preprocess": "^5.0.1"
 	}
 }
