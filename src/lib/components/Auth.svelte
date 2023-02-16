@@ -5,7 +5,7 @@
     let email;
     import { Card, Checkbox, Button, Label, Input, Modal, ButtonGroup, InputAddon, ToolbarButton } from 'flowbite-svelte';
     let show = false;
-    let formModal = false;
+    let formModal = true;
 
     const handleLogin = async () => {
     try {
