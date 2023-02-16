@@ -17,7 +17,7 @@
 >
 	<NavBrand href="/">
 		<img
-			src="public/img/sellit-logo.png"
+			src="/images/sellit-logo.png"
 			class="mr-3 h-6 sm:h-9"
 			alt="Flowbite Logo"
 		/>
