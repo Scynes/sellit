@@ -3,5 +3,10 @@
 </script>
 
 <Heading class="text-white"
-	>What are we trying to <Mark>accomplish here</Mark> ?</Heading
+	><img
+		src="public/img/sellit-logo.png"
+		class="mr-3 h-48 center"
+		alt="Flowbite Logo"
+	/>
+	What are we trying to <Mark>accomplish here</Mark> ?</Heading
 >
