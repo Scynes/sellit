@@ -8,23 +8,39 @@
 		Button,
 		Input,
 	} from 'flowbite-svelte';
-	import Auth from '../Auth.svelte';
 	import Login from '../base/Login.svelte';
 	import Signup from '../base/Signup.svelte';
 	import { supabase } from '../../utils/supabase.js';
-	import { user } from '../../../stores/authStore.js';
+	
+	let user = null
+	let isLoggedIn = false;
+  	let error;
 
-	console.log(supabase.auth.user);
-	// user.set(supabase.auth.user());
-	supabase.auth.onAuthStateChange((_, session) => {
-		user.set(session?.user);
-		if (session?.user) {
-		}
-	});
-	const logout = () => {
-		console.log('log out');
-		supabase.auth.signOut();
-	};
+  	async function session() {
+    const {data, error} = await supabase.auth.getSession()
+	if (error) {
+      console.log(error.message);
+    } else {
+      isLoggedIn = true;
+      user = data;
+    }
+  }
+	session();
+  	
+
+	async function handleLogout() {
+    const { error } = await supabase.auth.signOut();
+	const { data, err } = await supabase.auth.refreshSession()
+    if (error) {
+      console.error(error);
+    } else {
+      alert('You have been logged out');
+	  console.log(data)
+	  isLoggedIn = false;
+	  user = null;
+    }
+  }
+
 </script>
 
 <Navbar
@@ -117,20 +133,17 @@
 		</div>
 	</div>
 	<div class="flex md:order-2">
-		{#if user}
-			<Signup />
-			<Login />
-			<Button
+		{#if !isLoggedIn}
+		<Login />
+		<Signup />
+		{:else}
+		<Button
 				color="green"
 				class="mx-2 bg-dk-green text-white"
 				size="sm"
-				on:click={logout}
-			>
-				Log Out</Button
-			>
-		{:else}
-			<Auth />
-			<Login />
+				on:click={handleLogout}>
+				Log Out
+			</Button>
 		{/if}
 	</div>
 </Navbar>

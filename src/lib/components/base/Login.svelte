@@ -1,4 +1,5 @@
 <script>
+	import { supabase } from '../../utils/supabase.js';
 	import {
 		Card,
 		Checkbox,
@@ -10,8 +11,35 @@
 		InputAddon,
 		ToolbarButton,
 	} from 'flowbite-svelte';
-	let show = false;
-	let formModal = false;
+	let loading = false
+    let email;
+    let show = false;
+    let formModal = true;
+
+	let user
+  	let error;
+
+  	async function session() {
+    const {data, error} = await supabase.auth.getSession();
+	user = data
+  	}
+
+	session();
+
+    const handleLogin = async () => {
+    try {
+      loading = true
+      const { error } = await supabase.auth.signInWithOtp({ email })
+      if (error) throw error
+      alert('Check your email for login link!')
+    } catch (error) {
+      if (error instanceof Error) {
+        alert(error.message)
+      }
+    } finally {
+      loading = false
+    }
+  }
 </script>
 
 <main>
@@ -28,16 +56,18 @@
 		<h3 class="text-xl font-medium text-gray-900 dark:text-white p-0">
 			Sign in
 		</h3>
-		<form
-			action="?/login"
-			method="POST"
-			class="auth-form flex flex-col space-y-6"
-		>
+		<form 
+			action="?/login" 
+			method="POST" 
+			class="auth-form flex flex-col space-y-6" 
+			on:submit|preventDefault="{handleLogin}">
 			<Label class="space-y-2">
 				<Input
 					type="email"
-					placeholder="name@flowbite.com"
+					placeholder="Email"
 					size="md"
+					name='email' 
+					bind:value="{email}"
 				>
 					<svg
 						slot="right"
