@@ -10,8 +10,29 @@
 		InputAddon,
 		ToolbarButton,
 	} from 'flowbite-svelte';
+  import { supabase } from '../../utils/supabase';
 	let show = false;
 	let formModal = false;
+	let email = '';
+  	let password = '';
+ 	 let error = null;
+
+  	async function handleSignUp() {
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+    });
+
+    if (error) {
+      console.error(error);
+      setError(error.message);
+    } else {
+      console.log('Sign up successful:', data);
+      // TODO - save to user
+      // && auth to app
+    }
+  	}
+
 </script>
 
 <main>
@@ -32,12 +53,14 @@
 			action="?/login"
 			method="POST"
 			class="auth-form flex flex-col space-y-6"
+			on:submit|preventDefault={handleSignUp}
 		>
 			<Label class="space-y-2">
 				<Input
 					type="email"
 					placeholder="name@flowbite.com"
 					size="md"
+					bind:value={email}
 				>
 					<svg
 						slot="right"
@@ -64,6 +87,7 @@
 					type={show ? 'text' : 'password'}
 					placeholder="Your password here"
 					size="lg"
+					bind:value={password}
 				>
 					<button
 						slot="right"
