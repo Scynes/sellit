@@ -13,7 +13,7 @@
 		<a href="/">
 			<img
 				class="p-8 rounded-lg"
-				src="public/img/tj.jpg"
+				src="/images/tj.jpg"
 				alt="product 1"
 			/>
 		</a>
@@ -43,7 +43,7 @@
 		<a href="/">
 			<img
 				class="p-8 rounded-t-lg"
-				src="public/img/fb.jpg"
+				src="/images/fb.jpg"
 				alt="product 1"
 			/>
 		</a>

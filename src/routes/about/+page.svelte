@@ -4,7 +4,7 @@
 
 <Heading class="text-white"
 	><img
-		src="public/img/sellit-logo.png"
+		src="/images/sellit-logo.png"
 		class="mr-3 h-48 center"
 		alt="Flowbite Logo"
 	/>
